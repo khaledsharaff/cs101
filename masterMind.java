@@ -40,7 +40,7 @@ public class masterMind {
     
     public static void main(String[] args) {
         
-        System.out.println("Secret code: 132547");
+        System.out.println("My guess is 001122");
         
         getFeedback();
 
