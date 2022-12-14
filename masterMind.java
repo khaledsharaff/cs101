@@ -9,11 +9,12 @@ public class masterMind {
 
     static int directHit;
     static int indirectHit;
-    static int realNumber;
+    static int guessedNumber="";
     
-    static ArrayList<Integer> directHits = new ArrayList<Integer>();
-    static ArrayList<Integer> indirectHits = new ArrayList<Integer>();
-    static ArrayList<Integer> guesses = new ArrayList<Integer>();
+    static ArrayList<Integer> directHits = new ArrayList<>();
+    static ArrayList<Integer> indirectHits = new ArrayList<>();
+    static ArrayList<Integer> correctNumber = new ArrayList<>();
+    static ArrayList<String> guesses = new ArrayList<>();
 
     static Random rand = new Random();
     
@@ -35,14 +36,31 @@ public class masterMind {
 
         directHits.add(directHit);
         indirectHits.add(indirectHit);
+        correctNumber.add(directHit+indirectHit);
+    }
+    public static boolean isCorrect(){
+        if(indirectHit==0 && directHit==6){ //if number has found
+            System.out.println("I Found Your Number!!! The Number is "+guessedNumber);
+            return true;
+        }
+        guesses.add(guessedNumber);
+        return false;
     }
     
     
     public static void main(String[] args) {
         
-        System.out.println("My guess is 001122");
-        
-        getFeedback();
+        for(int i=0;i<10;i++){
+            for(int a=0;a<6;a++){
+                guessedNumber += i;
+            }
+            System.out.println("My Guess is "+guessedNumber);
+            getFeedback();
+            if(isCorrect()){
+                break;
+            }
+            guessedNumber = "";
+        }
 
         
         
