@@ -35,6 +35,7 @@ public class Main {
             }
             number = number + digit;
         }
+        guesses.add(number);
         return number;
     }
 
