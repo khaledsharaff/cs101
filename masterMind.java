@@ -59,8 +59,8 @@ public class masterMind {
         // this method is useful only for the part where the program guesses 000000...999999
 
         int sumOfCN=0; //sum of correct numbers
-        for(int i=0;i<correctNumber.size();i++){
-            sumOfCN += correctNumber.get(i);
+        for(int i=0;i<directHits.size();i++){
+            sumOfCN += directHits.get(i);
         }
         if(sumOfCN>6){
             return false;
@@ -68,6 +68,23 @@ public class masterMind {
         return true;
     }
     
+    public static boolean isConsistent2(){ //correctnumber can never be higher than 6
+        for(int i=0;i<correctNumber.size();i++){
+            if(correctNumber.get(i)>6){
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    public static boolean isConsistent3(){ //after first guesses, correctnumber cannot be lower than 6
+        for(int i=0;i<correctNumber.size();i++){
+            if(correctNumber.get(i)<6){
+                return false;
+            }
+        }
+        return true;
+    }
     public static boolean allDigitsFound(){
         //works when all digits in the secret number has found
         int sumOfCN=0; //sum of correct numbers
